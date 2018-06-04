@@ -13,7 +13,7 @@ Page({
             if (num >= 100) {
                 num = 0;
                 clearInterval(timer);
-                wx.switchTab({
+                wx.navigateTo({
                     url: '/pages/index/index'
                 })
             }
