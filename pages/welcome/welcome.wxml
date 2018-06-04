@@ -1,0 +1,13 @@
+<view class="index">
+  <view class='indexImg'>
+    <image src='../../resource/images/index.png' mode='aspectFit'></image>
+    <text>低碳闪灵</text>
+  </view>
+  <view class='span'>
+    <view class='circle'></view>
+    <view class='circle'></view>
+    <view class='circle'></view>
+  </view>
+  <text class='percent'>{{percent}}%</text>
+  <text class='msg'>技术支持：南京擎天科技有限公司</text>
+</view>

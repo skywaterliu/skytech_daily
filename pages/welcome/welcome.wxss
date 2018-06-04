@@ -1,0 +1,42 @@
+.index{
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.indexImg{
+  margin: 300rpx 0 50rpx;
+}
+.indexImg image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: auto;
+}
+.indexImg text{
+  display: block;
+  text-align: center;
+  font-size: 36rpx;
+  margin-top: 15rpx;
+}
+.circle{
+  width: 15rpx;
+  height: 15rpx;
+  background: #999999;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 7rpx;
+}
+.percent{
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 20rpx;
+  display: inline-block;
+}
+.msg{
+  font-size: 28rpx;
+  display: block;
+  position: absolute;
+  bottom: 60rpx;
+  width: 100%;
+  color: #999;
+}
