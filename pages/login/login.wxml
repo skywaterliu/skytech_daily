@@ -7,7 +7,7 @@
         <input class='login-input' placeholder="登录名" ></input>
         <input class='login-input' placeholder="密码" ></input>
         <input class='login-forget' value='忘记密码'></input>
-        <button class='login-button' style='color:white;line-height:45px;' bindtap='signIn'>登陆</button>
+        <button class='login-button' style='color:white' bindtap='signIn'>登陆</button>
       </form>
     </view>
     <view style='height:50px'>
