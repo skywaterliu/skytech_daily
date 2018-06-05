@@ -62,5 +62,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  signIn:function(){
+    if(this.login()){
+      
+    }
+  },
+  login:function(){
+    return true;
   }
 })
