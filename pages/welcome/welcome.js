@@ -14,7 +14,7 @@ Page({
                 num = 0;
                 clearInterval(timer);
                 wx.navigateTo({
-                    url: '/pages/index/index'
+                    url: '/pages/login/login'
                 })
             }
         }, 100);

@@ -66,7 +66,9 @@ Page({
 
   signIn:function(){
     if(this.login()){
-      
+      wx.navigateTo({
+        url: '/pages/home/home'
+      })
     }
   },
   login:function(){
