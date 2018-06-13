@@ -1,0 +1,38 @@
+/* pages/duty/duty_detail/duty_detail.wxss */
+
+.weui-cell {
+  padding: 10px 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  line-height: 1;
+  font-size:15px;
+}
+
+.weui-cell__bd {
+  /* -webkit-box-flex:1; *//* -webkit-flex:1; */
+  color: #999;
+  /* flex:1; */
+}
+
+.weui-cell__ft {
+  text-align: right;
+  /* color:#999; */
+}
+
+.weui-uploader__file {
+  float: left;
+  margin-right: 9px;
+  margin-bottom: 9px;
+  /* margin-left:9px; */
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 79px;
+  height: 79px;
+}

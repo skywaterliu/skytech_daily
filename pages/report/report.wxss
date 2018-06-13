@@ -1,0 +1,92 @@
+/* pages/report/report.wxss */
+.weui-cell {
+  padding: 10px 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  line-height: 1;
+  font-size:15px;
+}
+
+
+/*主容器*/
+.stepper {
+  width:52%;
+  height:26px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/*加号和减号*/
+.stepper text {
+  float: left;
+  width: 70px;
+  line-height: 26px;
+  text-align: center;
+}
+/*数值*/
+.stepper input {
+  width: 40px;
+  height: 26px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+/*普通样式*/
+.stepper .normal {
+  color:black;
+}
+/*禁用样式*/
+.stepper .disable {
+  color: #ccc;
+}
+
+
+
+.weui-label {
+width:45px;
+word-wrap:break-word;
+word-break:break-all;
+
+}
+.weui-cell__bd {
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+}
+.weui-input {
+height:2.58823529em;
+min-height:2.58823529em;
+line-height:2.58823529em;
+}
+
+
+
+ .textinput {
+  /* margin: 5rpx 20rpx 5rpx 20rpx; */
+  border: 1rpx solid #09bb07;
+  /* font-size: 40rpx; */
+} 
+
+.scrollview {
+  /* height: 60%; */
+  position: relative;
+  margin-left:60px;
+  /* top: 260rpx; */
+}
+
+.itemview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  border-bottom: 1px solid #b1b1b1;
+}
+

@@ -1,0 +1,52 @@
+<!--pages/duty/duty_photos/duty_photos.wxml-->
+<!-- 拍照 -->
+<!-- <view class="weui-cell">
+  <view class="weui-cell__bd">
+    <view class="weui-uploader">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">点击可预览选好的图片(可多选)</view>
+        <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+      </view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files">
+          <block wx:for="{{imageList}}" wx:for-item="image" wx:key="property">
+            <view class="weui-uploader__file">
+              <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+            </view>
+          </block>
+        </view>
+        <view class="weui-uploader__input-box">
+          <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="btn-area" style='vertical-align:middle;'>
+  <button class="weui-btn" type="primary" bindtap='confirmPhotos'>确定</button>
+</view> -->
+
+
+
+
+
+
+<!-- 新代码 -->
+<import src="../../../resource/js/weCropper.wxml"/>
+
+<view class="cropper-wrapper">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="upload"
+                bindtap="uploadTap">
+            上传图片
+        </view>
+        <view
+                class="getCropperImage"
+                bindtap="getCropperImage">
+            生成图片
+        </view>
+    </view>
+</view>

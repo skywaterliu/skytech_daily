@@ -2,7 +2,7 @@
 <view class="login-page">
     <text class='login-top-text'>登陆</text>
     <view class='login-border'>
-      <image class='login-middle-ico' src='../../resource/images/raw_1512446162.png'></image>
+      <image class='login-middle-ico' src='../../resource/images/xtgj.png'></image>
       <form>
         <input class='login-input' placeholder="登录名" ></input>
         <input class='login-input' placeholder="密码" ></input>

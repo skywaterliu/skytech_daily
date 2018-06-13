@@ -71,6 +71,7 @@ Page({
       })
     }
   },
+  //todo:
   login:function(){
     return true;
   }

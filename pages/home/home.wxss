@@ -20,7 +20,7 @@
 }
 
    .login-middle-ico2{
-     width: 100%;
+     width: 330px;
     height: 150px;
     left: 22px;
     top: 253px;
@@ -35,5 +35,8 @@
     line-height: 20px;
     font-weight: normal;
     font-style: normal;
-    opacity: 0.7;}
+    opacity: 0.7;
+    }
+
+
     

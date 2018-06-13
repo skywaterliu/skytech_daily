@@ -1,8 +1,12 @@
 <!--index.wxml-->
 <view class="container">
    <view class='login-border'>
-      <image class='login-middle-ico1' src='../../resource/images/raw_1512446225.jpeg'></image>
-     
-      <image class='login-middle-ico2' src='../../resource/images/raw_1512446251.jpeg'></image>
-      </view>
+     <view bindtap='gotoDuty'>
+      <image class='login-middle-ico1' src='../../resource/images/raw_1512446225.jpg'></image>  
+     </view>
+
+     <view bindtap='gotoReport'>
+      <image class='login-middle-ico2' src='../../resource/images/raw_1512446251.jpg'></image>
+     </view>
+   </view>
 </view>

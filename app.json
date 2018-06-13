@@ -3,13 +3,18 @@
     "pages/welcome/welcome",
     "pages/login/login",
     "pages/home/home",
+    "pages/duty/duty",
+    "pages/duty/duty_detail/duty_detail",
+    "pages/duty/duty_addr/duty_addr",
+    "pages/duty/duty_photos/duty_photos",
+    "pages/report/report",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#4d7ce9",
-    "navigationBarTitleText": "闪灵",
+    "navigationBarTitleText": "小碳管家",
     "navigationBarTextStyle":"#fff"
   }
 }

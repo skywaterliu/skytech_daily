@@ -1,0 +1,93 @@
+<!--pages/duty/duty_detail/duty_detail.wxml-->
+<view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+       <view style='height:20px'></view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style='-webkit-flex:0.9;'> 收件人：
+      </view>
+      <textarea style='width:270px;overflow:auto' class="textinput" bindinput="bindinput" value="{{inputValue}}" placeholder="请输入,自动联想" maxlength="300" />
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style='-webkit-flex:1.9;'>
+      </view>
+      <scroll-view scroll-y="true" class="scrollview">
+        <view wx:for="{{bindSource}}">
+          <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd"> 计划任务：</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" wx:for="{{workList}}" wx:for-item="work" wx:for-index="index" wx:key="idx">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{index+1}}、{{work.task}}</view>
+      </view>
+
+      <view class="page__bd page__bd_spacing">
+        <slider bindchange='changeCompletionDegree' id='{{index}}' show-value value="{{work.completion_degree}}" />
+      </view>
+
+      <view class="page__bd page__bd_spacing">
+        <view class='stepper'>
+          <text class='{{work.num>0?"normal":"disable"}}' type='number' bindtap='bindMinus' id="{{index}}">-</text>
+          <input value='{{work.num}} h'></input>
+          <text bindtap='bindPlus' id="{{index}}">+</text>
+        </view>
+      </view>
+    </view>
+
+    <view style='height:20px'></view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style='color:red'> 今日突发：
+      </view>
+      <view class="weui-cell__ft">
+        <button class="weui-btn mini-btn" type="primary" size='mini' bindtap='addburst'>增加</button>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" wx:for="{{burstList}}" wx:for-item="burst" wx:for-index="index" wx:key="idx">
+      <view class="weui-cell">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{index+1}}、</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入工作内容" style='' value="{{burst.task}}" bindinput='changeBurstTask' id="{{index}}" />
+          </view>
+          <view class="weui-cell__ft">
+            <button class="weui-btn mini-btn" type="primary" size='mini' bindtap='deleteBurst' id='{{index}}'>删除</button>
+          </view>
+        </view>
+      </view>
+
+      <view class="page__bd page__bd_spacing">
+        <slider show-value value="{{burst.completion_degree}}" bindchange='burstChangeCompletionDegree' id="{{index}}" />
+      </view>
+
+      <view class="page__bd page__bd_spacing">
+        <view class='stepper'>
+          <text class='{{burst.num>0?"normal":"disable"}}' type='number' bindtap='burstMinus' id="{{index}}">-</text>
+          <input value='{{burst.num}}h'></input>
+          <text bindtap='burstPlus' id="{{index}}">+</text>
+        </view>
+      </view>
+    </view>
+
+ 
+
+
+    <view style='height:20px'></view>
+
+    <view class="btn-area">
+      <button class="weui-btn" formType="submit" type="primary" plain="true">提交</button>
+    </view>
+  </form>
+</view>
