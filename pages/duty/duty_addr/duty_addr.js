@@ -12,7 +12,7 @@ Page({
    */
   data: {
     items: [],
-    imagePathList:[]
+    imagePathList: []
   },
 
   /**
@@ -32,6 +32,7 @@ Page({
         var longitude = res.longitude//经度
         console.log(res);
         that.loadCity(latitude, longitude);
+        that.resetMap(latitude, longitude);
       }
     })
   },
@@ -47,7 +48,6 @@ Page({
         that.setData({
           items: data[0].regeocodeData.pois
         });
-
       },
       fail: function (info) {
         console.log(info);
@@ -56,14 +56,28 @@ Page({
   },
 
   bindAddrChange: function (e) {
+    var that = this;
     const val = e.detail.value
     console.log(this.data.items[val[0]].name);
+    var positionArr = this.data.items[val[0]].location.split(',');
+    that.resetMap(positionArr[1], positionArr[0]);
   },
   bindChooseAddrtap: function (data) {
     wx.redirectTo({
       url: '/pages/duty/duty_detail/duty_detail?imagePathList=' + this.data.imagePathList
       +'&address_name=' + this.data.items[data.target.dataset.index].name
     })
+  },
+  resetMap: function (latitude, longitude) {
+    this.setData({
+      latitude: latitude, 
+      longitude: longitude, 
+      markers: [{
+        id: 1,
+        latitude: latitude,
+        longitude: longitude,
+        iconPath: '../../../resource/images/location.png'
+      }]})
   },
 
   /**
