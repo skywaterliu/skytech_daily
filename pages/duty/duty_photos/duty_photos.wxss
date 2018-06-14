@@ -108,3 +108,18 @@ icon {
     width: 50%;
     text-align: center;
 }
+
+
+
+
+
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.mini-btn{
+    margin-right: 5px;
+}
+
+.weui-btn{margin-top:15px}.weui-btn:first-child{margin-top:0}.weui-btn-area{margin:1.17647059em 15px .3em}
