@@ -1,6 +1,6 @@
 <view class="index">
   <view class='indexImg'>
-    <image src='../../resource/images/welcome2.jpg' mode='aspectFit'></image>
+    <image src='../../resource/images/xtgj.png' mode='aspectFit'></image>
     <text>小碳管家</text>
   </view>
   <view class='span'>

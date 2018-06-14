@@ -63,49 +63,49 @@
 //    * 生命周期函数--监听页面初次渲染完成
 //    */
 //   onReady: function () {
-  
+
 //   },
 
 //   /**
 //    * 生命周期函数--监听页面显示
 //    */
 //   onShow: function () {
-  
+
 //   },
 
 //   /**
 //    * 生命周期函数--监听页面隐藏
 //    */
 //   onHide: function () {
-  
+
 //   },
 
 //   /**
 //    * 生命周期函数--监听页面卸载
 //    */
 //   onUnload: function () {
-  
+
 //   },
 
 //   /**
 //    * 页面相关事件处理函数--监听用户下拉动作
 //    */
 //   onPullDownRefresh: function () {
-  
+
 //   },
 
 //   /**
 //    * 页面上拉触底事件的处理函数
 //    */
 //   onReachBottom: function () {
-  
+
 //   },
 
 //   /**
 //    * 用户点击右上角分享
 //    */
 //   onShareAppMessage: function () {
-  
+
 //   }
 
 
@@ -128,10 +128,11 @@
 
 
 import weCropper from '../../../resource/js/weCropper.js'
-
+var util = require('../../../utils/util.js');
 const __watermark_image__ = '../../../resource/images/xtgj.png'
-const __watermark_font__ = '低碳认证'
+const __watermark_font__ = util.formatTime(new Date());
 const device = wx.getSystemInfoSync()
+
 
 Page({
   data: {
@@ -140,8 +141,12 @@ Page({
       width: device.windowWidth,
       height: device.windowWidth,
       scale: 2.5,
-      zoom: 8
-    }
+      zoom: 8,
+    },
+    showPhotos: 'camera',
+    selectedAddress: '',
+    imageList: [],
+    phoneInfo:{}
   },
   touchStart(e) {
     this.wecropper.touchStart(e)
@@ -155,10 +160,14 @@ Page({
   getCropperImage() {
     this.wecropper.getCropperImage((src) => {
       if (src) {
-        console.log(src)
-        wx.previewImage({
-          current: '', // 当前显示图片的http链接
-          urls: [src] // 需要预览的图片http链接列表
+        console.log(src, "src")
+        // wx.previewImage({
+        //   current: '', // 当前显示图片的http链接
+        //   urls: [src] // 需要预览的图片http链接列表
+        // })
+        wx.redirectTo({
+          url: '/pages/duty/duty_detail/duty_detail?imagePathList=' + JSON.stringify(this.data.imageList.concat(src))
+          + '&address_name=' + this.data.selectedAddress
         })
       } else {
         console.log('获取图片地址失败，请稍后重试')
@@ -166,21 +175,49 @@ Page({
     })
   },
   uploadTap() {
-    const self = this
+    const self = this;
 
-    wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success(res) {
-        const src = res.tempFilePaths[0]
-        //  获取裁剪图片资源后，给data添加src属性及其值
 
-        self.wecropper.pushOrign(src)
+    // wx.chooseImage({
+    //   count: 1, // 默认9
+    //   sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    //   sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+    //   success(res) {
+    //     const src = res.tempFilePaths[0]
+    //     //  获取裁剪图片资源后，给data添加src属性及其值
+
+    //     self.wecropper.pushOrign(src)
+    //   }
+    // })
+    wx.createCameraContext().takePhoto({
+      quality: 'high',
+      success: (res) => {
+
+        this.setData({
+          src: res.tempImagePath,
+          showPhotos: 'photo'
+        })
+
+        self.wecropper.pushOrign(res.tempImagePath);
       }
     })
   },
   onLoad(option) {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (e) {
+        console.log(e, "手机信息");
+        that.setData({
+          phoneInfo:e
+        })
+      }
+    })
+
+    
+    if (option.selectedAddress) {
+      that.setData({ selectedAddress: option.selectedAddress })
+    }
+
     const { cropperOpt } = this.data
 
     wx.getImageInfo({
@@ -211,9 +248,9 @@ Page({
             console.log(`current canvas context:`, ctx)
             //  那就尝试在图片上加个水印吧
             // ctx.drawImage(path, 50, 50, 50, 30)
-            ctx.setFontSize(14)
+            ctx.setFontSize(12)
             ctx.setFillStyle('#ffffff')
-            ctx.fillText(__watermark_font__, 265, 350)
+            ctx.fillText(__watermark_font__, that.data.phoneInfo.windowWidth-130, 300)
           })
       }
     })

@@ -1,6 +1,6 @@
 <!--pages/duty/duty_addr/duty_addr.wxml-->
  <!--定位-->
- <view class="page-section page-section-gap" style='height:30%'>
+ <view class="page-section page-section-gap" style='height:50%'>
     <map
       id="myMap"
       style="width: 100%; height: 100%;"
