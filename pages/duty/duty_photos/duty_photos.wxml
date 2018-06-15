@@ -33,20 +33,18 @@
 
 
 <!-- 新代码 -->
-<import src="../../../resource/js/weCropper.wxml"/>
+<scroll-view style='overflow:scoller；width:100%;'>
 
-<view class="cropper-wrapper">
-    <template is="weCropper" data="{{...cropperOpt}}"/>
-    <view class="cropper-buttons">
-        <view
-                class="upload"
-                bindtap="uploadTap">
-            上传图片
-        </view>
-        <view
-                class="getCropperImage"
-                bindtap="getCropperImage">
-            生成图片
-        </view>
-    </view>
-</view>
+  <camera wx:if="{{showPhotos=='camera'}}" device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px"></camera>
+  <import src="../../../resource/js/weCropper.wxml" />
+
+
+  <view class="cropper-wrapper">
+    <template is="weCropper" data="{{...cropperOpt}}" wx:if="{{showPhotos=='photo'}}" />
+  </view>
+
+  <button class="weui-btn" type="primary" plain="true" bindtap="uploadTap">上传</button>
+
+  <button class="weui-btn" type="default" plain="true" bindtap="getCropperImage">确定</button>
+
+</scroll-view>
