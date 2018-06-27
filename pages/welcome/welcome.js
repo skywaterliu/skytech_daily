@@ -13,9 +13,11 @@ Page({
             if (num >= 100) {
                 num = 0;
                 clearInterval(timer);
-                wx.navigateTo({
+                if (!wx.getStorageSync('empInfo')){
+                  wx.redirectTo({
                     url: '/pages/login/login'
-                })
+                  })
+                }
             }
         }, 100);
 

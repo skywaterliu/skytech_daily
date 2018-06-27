@@ -1,32 +1,35 @@
 <view>
-  <view class="page__hd">
+  <!-- <view class="page__hd">
     <view class="page__title">
       <text decode="{{true}}" style='font-size:15px'>{{now_data}} &emsp;&emsp;当月加班天数：2天
         </text>
     </view>
     <!-- <view class="page__desc">图标</view> -->
-  </view>
+  <!-- </view> -->
   <view class="dashCircle">
-    <view wx:if="{{duty_status=='begin_duty'}}" class='innerCircle'  bindtap='goDutyDetail'>开始签到</view>
-     <view wx:if="{{duty_status=='end_duty'}}" class='innerCircle' bindtap='endDuty'>结束签到</view>
+    <view wx:if="{{duty_status=='begin'}}" class='innerCircle' bindtap='goDutyDetail'>开始签到</view>
+    <view wx:if="{{duty_status=='end'}}" class='innerCircle' bindtap='endDuty'>结束签到</view>
+    <view wx:if="{{duty_status=='finished'}}" class='innerCircle'>签到完成</view>
+    <view wx:if="{{duty_status=='invalid'}}" class='innerCircle'>尚未开始</view>
+    <!-- <view class='innerCircle'>...</view> -->
     <!-- <button class="weui-btn" type="primary" plain="true" bindtap='goDutyDetail'>开始签到</button> -->
     <!-- <button class="weui-btn" type="primary" plain="true">结束签到</button> -->
   </view>
 
 
-  <view class="weui-cells weui-cells_after-title" wx:if="{{duty_status=='end_duty'}}">
+  <view class="weui-cells weui-cells_after-title" wx:if="{{duty_status=='end'}}">
     <view class="weui-cell" style='font-size:10px;'>
-      <image style='width:30px;height:20px;' src="../../resource/images/addr2.png"></image>
-      <view class="weui-cell__bd">开始加班:</view>
-      <view class="weui-cell__ft">{{duty_data.now_data}}{{duty_data.selectedAddress}}</view>
+      <image style='width:20px;height:20px;' src="../../resource/images/Ok_32px.png"></image>
+      <text class="weui-cell__ok"> 开始加班:</text>
+      <text class="weui-cell__ft">{{overtimeWorkEnrollment.begin_time}}\n{{overtimeWorkEnrollment.check_in_spot}}</text>
     </view>
   </view>
 
-   <view class="weui-cells weui-cells_after-title" wx:if="{{page_status}}">
+  <view class="weui-cells weui-cells_after-title" wx:if="{{duty_status=='finished'}}">
     <view class="weui-cell" style='font-size:10px;'>
-      <image style='width:30px;height:20px;' src="../../resource/images/addr2.png"></image>
-      <view class="weui-cell__bd">结束加班:</view>
-      <view class="weui-cell__ft">{{end_now_data}}{{duty_data.selectedAddress}}</view>
+      <image style='width:20px;height:20px;' src="../../resource/images/Ok_32px.png"></image>
+      <text class="weui-cell__ok"> 结束加班:</text>
+      <text class="weui-cell__ft">{{overtimeWorkEnrollment.end_time}}</text>
     </view>
   </view>
 

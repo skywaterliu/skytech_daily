@@ -10,7 +10,7 @@ Page({
 
 
     inputValue: '',//点击结果项之后替换到文本框的值
-    adapterSource: ["吴琰", "孙结晶", "陈建", "梁媛", "拉拉", "wechat", "android", "Android", "ios", "iOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者",
+    adapterSource: ["吴炎", "孙结晶", "陈建", "梁媛", "拉拉", "wechat", "android", "Android", "ios", "iOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者",
       "微信开发者工具"],//本地匹配源
     bindSource: []//绑定到页面的数据，根据用户输入动态变化
   },
@@ -59,7 +59,6 @@ Page({
         url: '/pages/home/home',
       })
     },3000)
-    
   },
 
   /**
@@ -221,13 +220,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
   }
 })

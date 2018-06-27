@@ -6,7 +6,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -14,6 +14,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function isEmpty(value){
+  if(value == null || value == '' || value == undefined){
+    return true;
+  }
+  return false;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  isEmpty:isEmpty
 }

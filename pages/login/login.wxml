@@ -1,16 +1,16 @@
 <!--pages/login/login.wxml-->
 <view class="login-page">
-    <text class='login-top-text'>登陆</text>
+    <!-- <text class='login-top-text'>登陆</text> -->
     <view class='login-border'>
       <image class='login-middle-ico' src='../../resource/images/xtgj.png'></image>
-      <form>
-        <input class='login-input' placeholder="登录名" ></input>
-        <input class='login-input' placeholder="密码" ></input>
-        <input class='login-forget' value='忘记密码'></input>
-        <button class='login-button' style='color:white' bindtap='signIn'>登陆</button>
+      <form bindsubmit="login">
+        <input class='login-input' placeholder="登录名" name="username"></input>
+        <input class='login-input' placeholder="密码" name="password" type='password'></input>
+        <input class='login-forget' value='忘记密码' disabled='true'></input>
+        <button class='login-button' style='color:white' formType="submit">登陆</button>
       </form>
     </view>
     <view style='height:50px'>
-      <text style='text-align:center'>今天的你</text>
+      <!-- <text style='text-align:center'>今天的你</text> -->
     </view>
 </view>

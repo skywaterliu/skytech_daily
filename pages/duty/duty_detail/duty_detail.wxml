@@ -1,24 +1,35 @@
 <!--pages/duty/duty_detail/duty_detail.wxml-->
 <view>
   <form bindsubmit="formSubmit" bindreset="formReset">
+
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
-        <image style='width:30px;height:20px;' src="../../../resource/images/timg.jpg"></image>
-        <view class="weui-cell__bd">首次签到时间：</view>
+        <image style='width:20px;height:20px;' src="../../../resource/images/clock.png"></image>
+        <text class="weui-cell__bd" decode="{{true}}">&ensp;首次签到时间：</text>
         <view class="weui-cell__ft">{{now_data}}</view>
       </view>
     </view>
+
+    <view class="weui-cells weui-cells_after-title" bindtap='chooseOvertimeWorkType'>
+      <view class="weui-cell">
+        <image style='width:20px;height:20px;' src="../../../resource/images/work.png"></image>
+        <text class="weui-cell__bd" decode="{{true}}">&ensp;加班类型：</text>
+        <view class="weui-cell__ft">{{overtimeWorkType}}</view>
+      </view>
+    </view>
+
     <view class="weui-cells weui-cells_after-title" bindtap='goAddress'>
       <view class="weui-cell">
-        <image style='width:30px;height:20px;' src="../../../resource/images/addr2.png"></image>
-        <view class="weui-cell__bd">签到地点：</view>
+        <image style='width:20px;height:20px;' src="../../../resource/images/dinwei.png"></image>
+        <text class="weui-cell__bd" decode="{{true}}">&ensp;签到地点：</text>
         <view class="weui-cell__ft">{{selectedAddress}}</view>
       </view>
     </view>
+
     <view class="weui-cells weui-cells_after-title" bindtap='goPhotos'>
       <view class="weui-cell">
-        <image style='width:30px;height:20px;' src="../../../resource/images/photo1.png"></image>
-        <view class="weui-cell__bd">拍照认证：</view>
+        <image style='width:20px;height:20px;' src="../../../resource/images/camera.png"></image>
+        <text class="weui-cell__bd" decode="{{true}}">&ensp;拍照认证：</text>
         <view class="weui-cell__ft"></view>
       </view>
     </view>
@@ -38,7 +49,10 @@
       <view class="weui-cell">
         <view class="weui-cell__bd">加班所属项目：</view>
         <view style="text-align:left;">
-          <input style="text-overflow:clip;color:black" value="{{programValue}}" name="programValue" bindinput='changeProgramValue'/>
+          <picker bindchange="bindProjectChange" value="{{projectIndex}}" range="{{projectList}}">
+            <!-- <button type="default">单列选择器</button> -->
+            <input style="text-overflow:clip;color:black" value="{{programValue}}" name="programValue" disabled='true'/>
+          </picker>
         </view>
       </view>
     </view>
@@ -51,15 +65,15 @@
     </view>
 
     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell">
+      <view class="weui-cell" style='border:2px #e2e2e2 solid;'>
         <view class="weui-cell__bd">
-          <textarea maxlength='800' class="weui-textarea" placeholder="请输入文本" style="height: 15.3em;color:black" bindinput='changeRemark' value='{{remarkValue}}' name="remarkValue"/>
+          <textarea maxlength='800' class="weui-textarea" placeholder="请输入文本" style="color:black" bindinput='changeRemark' value='{{remarkValue}}' name="remarkValue" />
           <view class="weui-textarea-counter">0/200</view>
         </view>
       </view>
     </view>
 
-    <view class="btn-area">
+    <view class="btn-area" style='position:fixed; bottom:2%;width:100%'>
       <button class="weui-btn" formType="submit" type="primary" plain="true">提交</button>
     </view>
   </form>

@@ -11,8 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [],
-    imagePathList: []
+    items: []
   },
 
   /**
@@ -20,10 +19,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    if (options.imagePathList){
-      that.setData({ imagePathList: options.imagePathList})
-    }
 
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
@@ -63,9 +58,14 @@ Page({
     that.resetMap(positionArr[1], positionArr[0]);
   },
   bindChooseAddrtap: function (data) {
-    wx.redirectTo({
-      url: '/pages/duty/duty_detail/duty_detail?imagePathList=' + this.data.imagePathList
-      +'&address_name=' + this.data.items[data.target.dataset.index].name
+    let pages = getCurrentPages();//当前页面
+    let prevPage = pages[pages.length - 2];//上一页面
+    prevPage.setData({//直接给上移页面赋值
+      imagePathList: this.data.imagePathList,
+      selectedAddress: this.data.items[data.target.dataset.index].name
+    });
+    wx.navigateBack({
+      url: '/pages/duty/duty_detail/duty_detail'
     })
   },
   resetMap: function (latitude, longitude) {
@@ -99,33 +99,6 @@ Page({
    */
   onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+
 })

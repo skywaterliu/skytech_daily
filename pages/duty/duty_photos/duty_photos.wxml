@@ -43,8 +43,10 @@
     <template is="weCropper" data="{{...cropperOpt}}" wx:if="{{showPhotos=='photo'}}" />
   </view>
 
-  <button class="weui-btn" type="primary" plain="true" bindtap="uploadTap">上传</button>
+  <button class="weui-btn" type="primary" plain="true" bindtap="uploadTap" wx:if="{{!src}}">拍照</button>
+  
+  <button class="weui-btn" type="primary" plain="true" bindtap="reUploadTap" wx:if="{{src}}">重新拍照</button>
 
-  <button class="weui-btn" type="default" plain="true" bindtap="getCropperImage">确定</button>
+  <button class="weui-btn" type="default" plain="true" bindtap="getCropperImage" wx:if="{{src}}">确定</button>
 
 </scroll-view>

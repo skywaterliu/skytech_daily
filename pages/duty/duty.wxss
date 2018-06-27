@@ -1,40 +1,54 @@
 /* pages/duty/duty.wxss */
 
 .page__hd {
-    padding:20px;
+  padding: 20px;
 }
+
 .page__title {
- font-size:18px;
- font-weight:400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .page__desc {
-  color:#888888;
-  text-align:left;
-  font-size:14px;
+  color: #888;
+  text-align: left;
+  font-size: 14px;
 }
 
 .button-sp-area {
-  margin:0 auto;
-  padding-top:15px;
-  width:60%;
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
 }
 
-.innerCircle{
+.innerCircle {
   display: flex;
- width: 290rpx;height: 290rpx;background: #fff;border-radius: 50%;justify-content: center;align-items: center;
- color: #6b97fe;font-size: 56rpx;box-shadow: 0 0 6rpx 2rpx rgba(3, 58, 109, 0.35)
+  width: 290rpx;
+  height: 290rpx;
+  background: #fff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: #6b97fe;
+  font-size: 56rpx;
+  box-shadow: 0 0 6rpx 2rpx rgba(3, 58, 109, 0.35);
 }
 
-.dashCircle{display: flex;
-  margin: 0 auto;width: 306rpx;height: 306rpx;border-radius: 50%;border: 3rpx dashed #f5f6f7;justify-content: center;align-items: center;
+.dashCircle {
+  display: flex;
+  padding-bottom: 15px;
+  margin: 20% auto;
+  width: 306rpx;
+  height: 306rpx;
+  border-radius: 50%;
+  border: 3rpx dashed #f5f6f7;
+  justify-content: center;
+  align-items: center;
 }
-
-
-
 
 .weui-cell__ft {
-  text-align: right;
+  text-align: left;
+  font-size: 15px;
   /* color:#999; */
 }
 
@@ -48,5 +62,12 @@
   -webkit-align-items: center;
   align-items: center;
   line-height: 1;
-  font-size:15px;
+  font-size: 15px;
+}
+
+.weui-cell__ok {
+  padding-left: 9px;
+  font-size: 15px;
+  padding-right: 9px;
+  width:85px;
 }
